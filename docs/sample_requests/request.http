@@ -1,0 +1,260 @@
+
+### acquire a token / login
+POST  http://127.0.0.1:7000/common/authentication/login/ HTTP/1.1
+content-type: application/json
+
+{
+    "email":"dimitris@samaras.com",
+    "password":"password"
+}
+
+### logout
+POST  http://127.0.0.1:7000/common/authentication/logout/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer jwt-token
+
+{
+    "refresh_token": "refresh-token"
+}
+
+### refresh a token
+POST  http://127.0.0.1:7000/common/authentication/token/refresh/ HTTP/1.1
+content-type: application/json
+
+{
+    "refresh_token": "refresh-token"
+}
+
+### request for password reset
+POST http://127.0.0.1:7000/common/authentication/reset-password-request/ HTTP/1.1
+content-type: application/json
+
+{
+    "email":"dimitris@samaras.com"
+}
+
+### perform password reset
+POST http://127.0.0.1:7000/common/authentication/reset-password-request/jwt-request/ HTTP/1.1
+content-type: application/json
+
+{
+    "password":"new_password"
+}
+
+### get users
+GET  http://127.0.0.1:7000/common/user/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer jwt-token
+
+### get single user
+GET  http://127.0.0.1:7000/common/user/1/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer jwt-token
+
+### register a new user
+POST  http://127.0.0.1:7000/common/user/register/ HTTP/1.1
+content-type: application/json
+
+{
+    "email":"dimitris@samaras.com",
+    "first_name":  "dim",
+    "last_name": "sam"
+}
+
+### check if a user email exists
+GET http://127.0.0.1:7000/common/user/check-email/administrator8admin.com/
+content-type: application/json
+
+### complete registration
+POST http://127.0.0.1:7000/common/user/complete-registration/
+content-type: application/json
+
+{
+    "email":"dimitris@samaras.com",
+    "first_name":  "dim",
+    "last_name": "sam",
+    "password": "password"
+}
+
+### update user profile
+PUT  http://127.0.0.1:7000/common/user/profile/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer jwt-token
+
+{
+    "first_name": "Dimitrios",
+    "address": {
+        "street_name":"test2",
+        "house_number":"13",
+        "po_box_number":"13",
+        "postal_code":"90001",
+        "city":"test",
+        "state":"test",
+        "country":"IN"
+    },
+    "official_sex": "M",
+    "mobile_phone_number": "123456789",
+    "nationality": "GR",
+    "language": "en",
+    "additional_emails": ["dimitris1@test.com", "dimitris2@test.com" ]
+}
+
+### update user profile
+PUT  http://127.0.0.1:7000/common/user/profile/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer jwt-token
+
+{
+    "first_name": "Lin",
+    "last_name": "Ye",
+    "language": "en",
+    "additional_emails": ["testing3@test.com", "testing4@test.com", "testing5@test.com"]
+}
+
+### update user profile
+GET  http://127.0.0.1:7000/common/user/profile/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer jwt-token
+
+### Verify email address
+GET  http://127.0.0.1:7000/common/user/verify-email/jwt-string HTTP/1.1
+content-type: application/json
+
+### Invite user(s) to platform
+POST http://127.0.0.1:7000/common/user-inivitation/invite HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+{
+    "invite_emails" : ["test1@yopmail.com", "test2@yopmail.com"]
+}
+
+### Add email to my existing account
+GET http://127.0.0.1:7000/common/user-invitation/add-email-to-account/jwt-string/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+### Accept invitation and add secondary email
+POST http://127.0.0.1:7000/common/user-invitation/accept/jwt-string/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "first_name":"Test",
+    "last_name":"New",
+    "email":"test_new_new6@yopmail.com",
+    "invited_email":"test_new6@yopmail.com"
+}
+
+### Create new organization
+POST http://127.0.0.1:7000/common/organization/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+{
+    "name": "Test Org 125",
+    "organization_type": 5,
+    "headquarter_information": {
+        "street_name": "Baker Street",
+        "house_number": 12,
+        "po_box_number": 7,
+        "postal_code": 11002,
+        "city": "London",
+        "state": "London State",
+        "country": "GB"
+    },
+    "business_type": "Detective work",
+    "business_tax_id": "S1E2C3R4E5T6",
+    "business_vat_number": "6T5E4R3C2E1S",
+    "business_email_address": "sherlock@holmes.com"
+
+}
+
+### Get organization list
+GET http://127.0.0.1:7000/common/organization/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+
+### Get organization detail
+GET http://127.0.0.1:7000/common/organization/53/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+
+### Update organization
+PUT http://127.0.0.1:7000/common/organization/53/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+{
+    "name": "Test Org 125",
+    "organization_type": 5,
+    "headquarter_information": {
+        "street_name": "Baker Street",
+        "house_number": 12,
+        "po_box_number": 7,
+        "postal_code": 11002,
+        "city": "London",
+        "state": "London State",
+        "country": "GB"
+    },
+    "business_type": "Detective work",
+    "business_tax_id": "S1E2C3R4E5T6",
+    "business_vat_number": "6T5E4R3C2E1S",
+    "business_email_address": "sherlock@holmes.com"
+
+}
+
+### Invite to organization
+POST http://127.0.0.1:7000/common/organization/invite-user/
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+{
+    "invite_emails" : ["test1@organization1.com", "test2@organization1.com"],
+    "organization": 666
+}
+
+### Accept invitation to organization with my existing account
+GET http://127.0.0.1:7000/common/user-invitation/add-email-to-account/jwt-string/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+### Accept invitation to organization add register
+POST http://127.0.0.1:7000/common/user-invitation/accept/jwt-string/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "first_name":"Test",
+    "last_name":"New",
+    "email":"test_new_new6@yopmail.com",
+    "invited_email":"test_new6@yopmail.com"
+}
+
+### List members in an organization
+GET http://127.0.0.1:7000/common/organization/43/members/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+
+### Edit member role in organization
+PUT http://127.0.0.1:7000/common/organization/43/members/5/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+{
+    "role":{
+        "name": "member"
+    }
+}
+
+### View organization member details
+GET http://127.0.0.1:7000/common/organization/43/members/5/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
+
+
+### Delete member from organization
+DELETE http://127.0.0.1:7000/common/organization/43/members/5/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer jwt-token
