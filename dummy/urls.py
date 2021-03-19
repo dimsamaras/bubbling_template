@@ -27,6 +27,6 @@ urlpatterns = [
 urlpatterns += [
     path("", include([
         path("", views.dummy_list, name="dummy-list"),
-        path("<int:pk>/", views.dummy_get, name="dummy-list"),
+        path("<int:pk>/", views.dummy_get, name="dummy-list-with-id"),
     ]))
 ]
