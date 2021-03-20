@@ -24,7 +24,8 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 INSTALLED_APPS = [
     # project apps:
-    # 'dummy.apps.DummyConfig',
+    'dummy',
+    'core',
     'healthchecks',
 
     # default django apps:
