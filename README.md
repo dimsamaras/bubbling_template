@@ -2,7 +2,7 @@
 This repository is a boilerplate Django project for quickly getting started.
 
 ## env recommendations
-- Python v3.9.2, install it on your local machine 
+- Python v3.9.2, install it on your local machine
 ```bash
 $ cd <project-repo-folder>
 $ python -m venv /path/to/new/virtual/environment
@@ -20,7 +20,7 @@ $ docker-compose up
 ```
 
 ## hard dependencies:
-1. Firebase app 
+1. Firebase app
 
 ## this django template project provides:
 1. Django dotenv and split settings
