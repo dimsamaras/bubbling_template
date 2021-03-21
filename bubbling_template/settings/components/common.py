@@ -155,10 +155,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),) # TODO: investigate: https://stackoverflow.com/questions/41904685/oserror-errno-2-no-such-file-or-directory-tmp-makecalls-static
 
-IDENTITY_CARD_FOLDER = 'user_id_photos/'
-PROFILE_IMAGE_FOLDER = 'profile_images/'
-SERVICE_IMAGE_FOLDER = 'service_images/'
-
 COMPANY_NAME = 'Bubbling'
 COMPANY_SITE = 'https://bubbling.eu'
 
@@ -186,7 +182,3 @@ FIREBASE_AUTH = {
     # require that user has verified their email
     "EMAIL_VERIFICATION": False
 }
-
-# used for the deep links creation
-APN_URL_PARAM = '&apn=eu.bubbling.app'
-BASE_DEEP_LINK_PAGE_LINK = 'https://bubbling.page.link/?link='
