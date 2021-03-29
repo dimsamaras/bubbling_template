@@ -23,6 +23,7 @@ class Command(BaseCommand):
 
         files_to_rename = [f'{current_project_name}/settings/components/common.py',
                            f'{current_project_name}/settings/components/database.py',
+                           f'{current_project_name}/settings/.env.template',
                            f'{current_project_name}/asgi.py',
                            f'{current_project_name}/wsgi.py',
                            'manage.py']

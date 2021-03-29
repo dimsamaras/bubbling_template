@@ -22,14 +22,12 @@ logging.basicConfig(
     format='%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
 )
 
-INSTALLED_APPS += ['rest_framework.authtoken', ]   # noqa: F821
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'bubbling_firebase_authentication.authentication.FirebaseAuthenticationAnonymous',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'bubbling_firebase_authentication.firebase_anonymous_permissions.IsAuthenticatedAnonymous',
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',

@@ -5,7 +5,7 @@ import logging
 
 import dj_database_url
 
-from user_operator.settings.components.database import DATABASES
+from bubbling_template.settings.components.database import DATABASES
 
 DEBUG = False
 
@@ -26,7 +26,7 @@ REST_FRAMEWORK = {
         'bubbling_firebase_authentication.authentication.FirebaseAuthenticationAnonymous',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'bubbling_firebase_authentication.firebase_anonymous_permissions.IsAuthenticatedAnonymous',
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',

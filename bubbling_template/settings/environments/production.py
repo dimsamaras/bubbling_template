@@ -2,7 +2,6 @@
 additional settings used in production
 """
 import logging
-import os
 
 DEBUG = False
 
@@ -36,7 +35,7 @@ REST_FRAMEWORK = {
         'bubbling_firebase_authentication.authentication.FirebaseAuthenticationAnonymous',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'bubbling_firebase_authentication.firebase_anonymous_permissions.IsAuthenticatedAnonymous',
     ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
